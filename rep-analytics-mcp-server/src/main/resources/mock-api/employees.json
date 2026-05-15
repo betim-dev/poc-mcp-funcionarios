@@ -1,0 +1,17 @@
+[
+  { "matricula": "1001", "nome": "Lucas Betim", "dataAdmissao": "2015-03-16", "aniversario": "1988-04-12" },
+  { "matricula": "1002", "nome": "Bruno Henrique Lima", "dataAdmissao": "2019-08-05", "aniversario": "1992-11-03" },
+  { "matricula": "1003", "nome": "Carla Mendes Rocha", "dataAdmissao": "2012-01-09", "aniversario": "1985-07-21" },
+  { "matricula": "1004", "nome": "Diego Sureck", "dataAdmissao": "2021-10-18", "aniversario": "1995-04-29" },
+  { "matricula": "1005", "nome": "Fernanda Ribeiro Santos", "dataAdmissao": "2017-06-01", "aniversario": "1990-09-14" },
+  { "matricula": "1006", "nome": "Ricardo Oliveira", "dataAdmissao": "2026-01-10", "aniversario": "1993-02-25" },
+  { "matricula": "1007", "nome": "Juliana Costa", "dataAdmissao": "2026-05-20", "aniversario": "1998-11-12" },
+  { "matricula": "1008", "nome": "Roberto Almeida", "dataAdmissao": "2025-12-15", "aniversario": "1987-08-30" },
+  { "matricula": "1009", "nome": "Patrícia Souza", "dataAdmissao": "2024-02-28", "aniversario": "1991-05-05" },
+  { "matricula": "1010", "nome": "Gabriel Ferreira", "dataAdmissao": "2026-08-01", "aniversario": "1996-03-14" },
+  { "matricula": "1011", "nome": "Mariana Silva", "dataAdmissao": "2025-01-10", "aniversario": "1994-12-01" },
+  { "matricula": "1012", "nome": "Rodrigo Santos", "dataAdmissao": "2025-03-15", "aniversario": "1989-06-20" },
+  { "matricula": "1013", "nome": "Beatriz Lima", "dataAdmissao": "2026-02-01", "aniversario": "1997-10-10" },
+  { "matricula": "1014", "nome": "André Souza", "dataAdmissao": "2024-11-20", "aniversario": "1990-01-05" },
+  { "matricula": "1015", "nome": "Juliana Martins", "dataAdmissao": "2026-04-12", "aniversario": "1995-07-08" }
+]

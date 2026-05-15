@@ -1,0 +1,9 @@
+apache-maven-3.9.14/
+spring-ai-mcp-server/
+**/target/
+**/.mvn/wrapper/maven-wrapper.jar
+*.log
+*.dump
+*.dumpstream
+.idea/
+.vscode/
