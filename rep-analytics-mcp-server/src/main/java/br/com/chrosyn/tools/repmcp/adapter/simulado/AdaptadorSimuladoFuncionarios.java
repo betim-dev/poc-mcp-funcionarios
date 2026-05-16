@@ -1,4 +1,4 @@
-package br.com.chrosyn.tools.repmcp;
+package br.com.chrosyn.tools.repmcp.adapter.simulado;
 
 import java.util.List;
 
@@ -7,8 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 
+import br.com.chrosyn.tools.repmcp.adapter.support.JsonClasspathLoader;
+import br.com.chrosyn.tools.repmcp.domain.FuncionarioRegistro;
+import br.com.chrosyn.tools.repmcp.port.FonteFuncionarios;
+
 @Service
-public class AdaptadorSimuladoFuncionarios implements PortaFuncionarios {
+public class AdaptadorSimuladoFuncionarios implements FonteFuncionarios {
 
 	private final List<FuncionarioRegistro> funcionarios;
 

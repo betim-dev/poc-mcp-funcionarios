@@ -1,4 +1,4 @@
-package br.com.chrosyn.tools.repmcp;
+package br.com.chrosyn.tools.repmcp.domain;
 
 public record BancoHorasRegistro(
 		String matricula,

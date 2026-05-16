@@ -1,7 +1,9 @@
-package br.com.chrosyn.tools.repmcp;
+package br.com.chrosyn.tools.repmcp.adapter.mcp;
 
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.stereotype.Service;
+
+import br.com.chrosyn.tools.repmcp.application.RepAnalyticsService;
 
 @Service
 public class RepAnalyticsTools {

@@ -1,4 +1,4 @@
-package br.com.chrosyn.tools.repmcp;
+package br.com.chrosyn.tools.repmcp.adapter.support;
 
 import java.io.IOException;
 import java.io.InputStream;

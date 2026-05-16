@@ -1,4 +1,4 @@
-package br.com.chrosyn.tools.repmcp;
+package br.com.chrosyn.tools.repmcp.application;
 
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
@@ -13,6 +13,11 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
+import br.com.chrosyn.tools.repmcp.domain.BancoHorasRegistro;
+import br.com.chrosyn.tools.repmcp.domain.FuncionarioRegistro;
+import br.com.chrosyn.tools.repmcp.port.FonteBancoHoras;
+import br.com.chrosyn.tools.repmcp.port.FonteFuncionarios;
 
 @Service
 public class RepAnalyticsService {
@@ -50,16 +55,16 @@ public class RepAnalyticsService {
 		MESES.put("dez", 12);
 	}
 
-	private final PortaFuncionarios portaFuncionarios;
-	private final PortaBancoHoras portaBancoHoras;
+	private final FonteFuncionarios fonteFuncionarios;
+	private final FonteBancoHoras fonteBancoHoras;
 	private final int anoPadrao;
 
 	public RepAnalyticsService(
-			PortaFuncionarios portaFuncionarios,
-			PortaBancoHoras portaBancoHoras,
+			FonteFuncionarios fonteFuncionarios,
+			FonteBancoHoras fonteBancoHoras,
 			@Value("${rep.analytics.default-year}") int anoPadrao) {
-		this.portaFuncionarios = portaFuncionarios;
-		this.portaBancoHoras = portaBancoHoras;
+		this.fonteFuncionarios = fonteFuncionarios;
+		this.fonteBancoHoras = fonteBancoHoras;
 		this.anoPadrao = anoPadrao;
 	}
 
@@ -80,7 +85,7 @@ public class RepAnalyticsService {
 	}
 
 	public String listarFuncionarios() {
-		return formatarFuncionarios(portaFuncionarios.listarFuncionarios(), "Funcionarios simulados:");
+		return formatarFuncionarios(fonteFuncionarios.listarFuncionarios(), "Funcionarios simulados:");
 	}
 
 	public String buscarFuncionarios(String matricula, Integer anoAdmissao, String mesAniversario) {
@@ -88,7 +93,7 @@ public class RepAnalyticsService {
 				? null
 				: resolverMes(mesAniversario).valor().getMonthValue();
 
-		List<FuncionarioRegistro> funcionarios = portaFuncionarios.listarFuncionarios().stream()
+		List<FuncionarioRegistro> funcionarios = fonteFuncionarios.listarFuncionarios().stream()
 				.filter(funcionario -> matricula == null || matricula.isBlank() || funcionario.matricula().equals(matricula))
 				.filter(funcionario -> anoAdmissao == null || funcionario.dataAdmissao().getYear() == anoAdmissao)
 				.filter(funcionario -> valorMesAniversario == null || funcionario.aniversario().getMonthValue() == valorMesAniversario)
@@ -106,7 +111,7 @@ public class RepAnalyticsService {
 		PeriodoResolvido periodoResolvido = resolverPeriodo(periodo);
 		Map<String, FuncionarioRegistro> funcionariosPorMatricula = funcionariosPorMatricula();
 
-		List<String> linhas = portaBancoHoras.listarLancamentos().stream()
+		List<String> linhas = fonteBancoHoras.listarLancamentos().stream()
 				.filter(lancamento -> matricula == null || matricula.isBlank() || lancamento.matricula().equals(matricula))
 				.filter(lancamento -> correspondeAoPeriodo(lancamento.mesReferencia(), periodoResolvido))
 				.sorted(Comparator.comparing(BancoHorasRegistro::mesReferencia).thenComparing(BancoHorasRegistro::matricula))
@@ -133,7 +138,7 @@ public class RepAnalyticsService {
 	}
 
 	private Map<String, FuncionarioRegistro> funcionariosPorMatricula() {
-		return portaFuncionarios.listarFuncionarios().stream()
+		return fonteFuncionarios.listarFuncionarios().stream()
 				.collect(Collectors.toMap(FuncionarioRegistro::matricula, funcionario -> funcionario));
 	}
 

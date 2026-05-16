@@ -6,7 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+import br.com.chrosyn.tools.repmcp.adapter.mcp.RepAnalyticsTools;
+
+@SpringBootTest(classes = RepAnalyticsMcpServerApplication.class)
 class RepAnalyticsMcpServerApplicationTests {
 
 	@Autowired
